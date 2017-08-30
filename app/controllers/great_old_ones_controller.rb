@@ -1,0 +1,2 @@
+class GreatOldOnesController < ApplicationController
+end
