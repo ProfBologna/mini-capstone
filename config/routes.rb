@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+get 'great_old_ones_url' => 'pages#great_old_ones_action'
 end
