@@ -1,0 +1,2 @@
+class GreatOldOne < ApplicationRecord
+end

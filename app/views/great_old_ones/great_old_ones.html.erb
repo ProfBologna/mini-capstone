@@ -1,1 +1,7 @@
-<h1>Great Old Ones Shop</h1>
+<h1>Great Old One Shop</h1>
+
+<% @great_old_one.each do |goo| %>
+  <h2>Name: <%= goo.name %></h2>
+  <h3>Price: <%= goo.price %></h2>
+  <img src=<%= goo.image %>>
+<% end %>
