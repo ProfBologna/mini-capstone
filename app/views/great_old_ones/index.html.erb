@@ -1,0 +1,8 @@
+
+<% @goo.each do |goo| %>
+  <h2><i><a href="/great_old_ones/<%= goo.id %>"><%= goo.name %></a></i></h2>
+  <img src=<%= goo.image %>>
+  <h3><b>Price: $</b><%= goo.price %></h3>
+  <h3>Futile Description: <i><%= goo.description%></i></h3>
+<% end %>
+
