@@ -9,7 +9,20 @@
   </head>
 
   <body>
+
     <h1><a href="/">Ye Great Old One, Elder God and Outer God Shoppe</a> </h1>
+    <p><a href="/great_old_ones/new">I sense something...</a></p>
+
+    <div class="container">
+    <% flash.each do |name, message| %>
+      <div class="alert alert-<%= name %> alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <%= message %>
+      <% end %>
+    </div>
+
     <%= yield %>
+
+    </div>
   </body>
 </html>

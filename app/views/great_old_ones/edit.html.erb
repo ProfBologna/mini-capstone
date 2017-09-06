@@ -1,0 +1,16 @@
+<h1>Edit A GOOOOOOOD</h1>
+<%= form_tag "/great_old_ones/#{@great_old_one.id}", method: :patch do %>
+  <div>
+    Name: <input type="text" name="name" value="<%= @great_old_one.name %>">
+  </div>
+   <div>
+    Price: <input type="text" name="price" value="<%= @great_old_one.price %>">
+  </div>
+   <div>
+    Image: <input type="text" name="image" value="<%= @great_old_one.image %>">
+  </div>
+   <div>
+    Description: <input type="text" name="description" value="<%= @great_old_one.description %>">
+  </div>
+  <input class="btn btn-success" type="submit" value="Update a GOOOOOOOOD">
+<% end %>

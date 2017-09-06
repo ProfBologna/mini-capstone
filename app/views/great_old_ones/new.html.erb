@@ -1,16 +1,20 @@
 <h1>New Great Old One</h1>
 <%= form_tag "/great_old_ones", method: :post do %>
-<div>
-  Name: <input type="text" name="name">
-</div>
-<div>
-  Futile Description: <input type="text" name="description">
-</div>
-<div>
-  Price: <input type="text" name="price">
-</div>
-<div>
-  Image: <input type="text" name="image">
-</div>
-<input type="submit" name="Create Elder God">
+<div class="form-group">
+    <label for="exampleInputEmail1">Name</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Name" name="name">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Price</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Price" name="price">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Image</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Image URL" name="image">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Description</label>
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Description" name="description">
+  </div>
+<input type="submit" value="Create Elder God" class="btn btn-primary">
 <% end %>
