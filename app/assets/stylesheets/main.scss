@@ -1,15 +1,20 @@
-h1 {
-  color: green
-}
-
 h2 {
   color: purple
 }
 
 h3 {
-  color: yellow
+  color: green
 }
 
 body {
-  background-image: url("http://www.datacosmos.com/wp-content/uploads/2013/10/cosmos2.jpg")
+  font-family: Rockwell,"Courier Bold",Courier,Georgia,Times,"Times New Roman",serif;
+  background-image: url('darkness.png');
+}
+
+.well img {
+  width: 100%
+}
+
+.product-index-single {
+  height: 950px
 }

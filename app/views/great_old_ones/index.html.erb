@@ -1,8 +1,15 @@
-
-<% @goo.each do |goo| %>
-  <h2><i><a href="/great_old_ones/<%= goo.id %>"><%= goo.name %></a></i></h2>
-  <img src=<%= goo.image %>>
-  <h3><b>Price: $</b><%= goo.price %></h3>
-  <h3>Futile Description: <i><%= goo.description%></i></h3>
-<% end %>
-
+<div class="row">
+  <% @goo.each do |goo| %>
+    <div class="col-md-4 col-sm-6 product-index-single">
+      <div class="well">
+        <h2><i><a href="/great_old_ones/<%= goo.id %>"><%= goo.name %></a></i></h2>
+        <img src=<%= goo.image %>>
+        <h3><b>Price: $</b><%= goo.price %></h3>
+        <h5><%= goo.sale_message %></h5>
+        <h5>Tax: $<%= goo.tax %></h3>
+        <h5>Total: $<%= goo.total %></h5>
+        <h3>Futile Description: <i><%= goo.description%></i></h3>
+      </div>
+    </div>
+  <% end %>
+</div>
