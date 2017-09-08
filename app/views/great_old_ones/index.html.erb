@@ -4,11 +4,11 @@
       <div class="well">
         <h2><i><a href="/great_old_ones/<%= goo.id %>"><%= goo.name %></a></i></h2>
         <img src=<%= goo.image %>>
-        <h3><b>Price: $</b><%= goo.price %></h3>
         <h5><%= goo.sale_message %></h5>
-        <h5>Tax: $<%= goo.tax %></h3>
-        <h5>Total: $<%= goo.total %></h5>
-        <h3>Futile Description: <i><%= goo.description%></i></h3>
+        <p class="<%= "red-price" if goo.discounted? %>">Price: <%= number_to_currency(goo.price) %></p>
+        <h5>Tax: <%= number_to_currency(goo.tax) %></h3>
+        <h5>Total: <%= number_to_currency(goo.total) %></h5>
+        <h4>Futile Description: <i><%= goo.description%></i></h4>
       </div>
     </div>
   <% end %>

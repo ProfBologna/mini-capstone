@@ -1,12 +1,11 @@
 class GreatOldOne < ApplicationRecord
 
   def sale_message
-    sales_message = ""
-
-    sales_message = "Discount horror!" if price < 600
-    sales_message = "Everyday value!" if price > 600
-
-    sales_message
+    if discounted?
+      sale_message = "Discount horror!"
+    else
+      sale_message = "Everyday eldrich value!"
+    end
   end
 
   def tax
@@ -15,6 +14,10 @@ class GreatOldOne < ApplicationRecord
 
   def total
     total = price + tax
+  end
+
+  def discounted?
+    price < 600
   end
 
 end

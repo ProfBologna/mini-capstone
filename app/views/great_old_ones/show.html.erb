@@ -1,9 +1,14 @@
   <h2><i><%= @great_old_one.name %></i></h2>
+    <h4><% if @great_old_one.discounted? %></h4>
+      <h4>Discount horror!</h4>
+  <% else %>
+    <h4>Everyday eldrich value!</h4>
+  <% end %>
   <img src=<%= @great_old_one.image %>>
-  <h3><b>Price: $</b><%= @great_old_one.price %></h3>
     <h5><%= @great_old_one.sale_message %></h5>
-    <h5>Tax: $<%= @great_old_one.tax %></h5>
-    <h5>Total: $<%= @great_old_one.total %></h5>
+    <p class="<%= "red-price" if @great_old_one.discounted? %>">Price: <%= number_to_currency(@great_old_one.price) %></p>
+    <h5>Tax: <%= number_to_currency(@great_old_one.tax) %></h5>
+    <h5>Total: <%= number_to_currency(@great_old_one.total) %></h5>
   <h3>Futile Description: <i><%= @great_old_one.description%></i></h3>
 
 <div>
