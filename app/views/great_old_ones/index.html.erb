@@ -1,10 +1,12 @@
+
 <div class="row">
   <% @goo.each do |goo| %>
     <div class="col-md-4 col-sm-6 product-index-single">
       <div class="well">
         <h2><i><a href="/great_old_ones/<%= goo.id %>"><%= goo.name %></a></i></h2>
-        <img src=<%= goo.image %>>
         <h5><%= goo.sale_message %></h5>
+        <% images = Image.where("great_old_one_id = ?", goo.id) %>
+        <img src="<%= images.first.url %>" alt="">
         <p class="<%= "red-price" if goo.discounted? %>">Price: <%= number_to_currency(goo.price) %></p>
         <h5>Tax: <%= number_to_currency(goo.tax) %></h3>
         <h5>Total: <%= number_to_currency(goo.total) %></h5>

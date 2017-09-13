@@ -2,10 +2,32 @@ class GreatOldOnesController < ApplicationController
   
   def index
     @goo = GreatOldOne.all
+
+    sort_attribute = params[:sort]
+    desc_attribute = params[:desc]
+    discount_items = params[:discount]
+    random_item = params[:random]
+
+    if desc_attribute && desc_attribute == "true"
+      @goo = @goo.order(sort_attribute => :desc)
+    elsif sort_attribute
+      @goo = @goo.order(sort_attribute)
+    end
+
+    if discount_items
+     @goo = @goo.where("price < ?", 600)
+    end
+
+    if random_item
+      random_id = @goo.sample.id
+      # @goo = GreatOldOne.find(random_id)
+      redirect_to "/great_old_ones/#{random_id}"
+    end
+
   end
 
   def new
-
+    @supplier = Supplier.all
   end
 
   def create
@@ -13,7 +35,8 @@ class GreatOldOnesController < ApplicationController
                                     name: params[:name],
                                     description: params[:description],
                                     price: params[:price],
-                                    image: params[:image]
+                                    image: params[:image],
+                                    supplier: params[:supplier]
                                     )
 
     great_old_one.save
