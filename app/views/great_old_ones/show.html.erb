@@ -1,18 +1,27 @@
-<% images = Image.where("great_old_one_id = ?", @great_old_one.id) %>
-  <h2><i><%= @great_old_one.name %></i></h2>
-  <% images.each do |image| %>
-     <img src="<%= image.url %>" alt="">
-  <% end %>
-    <h4><% if @great_old_one.discounted? %></h4>
-      <h4>Discount horror!</h4>
-  <% else %>
-    <h4>Everyday eldrich value!</h4>
-  <% end %>
-    <h5><%= @great_old_one.sale_message %></h5>
-    <p class="<%= "red-price" if @great_old_one.discounted? %>">Price: <%= number_to_currency(@great_old_one.price) %></p>
-    <h5>Tax: <%= number_to_currency(@great_old_one.tax) %></h5>
-    <h5>Total: <%= number_to_currency(@great_old_one.total) %></h5>
-  <h3>Futile Description: <i><%= @great_old_one.description%></i></h3>
+
+<h2><i><%= @great_old_one.name %></i></h2>
+<% @great_old_one.images.each do |image| %>
+   <img src="<%= image.url %>" alt="">
+<% end %>
+  <h4><% if @great_old_one.discounted? %></h4>
+    <h4>Discount horror!</h4>
+<% else %>
+  <h4>Everyday eldrich value!</h4>
+<% end %>
+  <h5><%= @great_old_one.sale_message %></h5>
+  <p class="<%= "red-price" if @great_old_one.discounted? %>">Price: <%= number_to_currency(@great_old_one.price) %></p>
+  <h5>Tax: <%= number_to_currency(@great_old_one.tax) %></h5>
+  <h5>Total: <%= number_to_currency(@great_old_one.total) %></h5>
+<h3>Futile Description: <i><%= @great_old_one.description%></i></h3>
+
+<%= form_tag '/orders', method: :post do %>
+<div>Quantity: <input type="text" name="quantity"></div>
+<div>Product ID: <input type="hidden" name="great_old_one_id" value="<%= @great_old_one.id %>"></div>
+<div><input type="submit" value="Proceed to Checkout"></div>
+<% end %>
+
+<div>
+</div>
 
 <div>
   <a href="/great_old_ones/<%= @great_old_one.id %>/edit" class="btn btn-warning">Edit the very nature of a GOD</a>
@@ -20,4 +29,5 @@
 <div>
   <a href="/great_old_ones/<%= @great_old_one.id %>", data-method="delete" class="btn btn-danger">Banish this abomination!</a>
 </div>
+
 <h6>Supplier: <%= @great_old_one.supplier.name %></h6>

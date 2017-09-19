@@ -2,6 +2,7 @@ class GreatOldOne < ApplicationRecord
 
   belongs_to :supplier
   has_many :images
+  has_many :orders
 
   def sale_message
     if discounted?
@@ -21,6 +22,14 @@ class GreatOldOne < ApplicationRecord
 
   def discounted?
     price < 600
+  end
+
+  def default_image
+    if images.count > 0
+      images.first.url
+    else
+      "http://2.bp.blogspot.com/-pixZA6nLgg4/VEr5k88nklI/AAAAAAAADpA/mqFjGsYe6FY/s1600/TimEric7.jpg"
+    end
   end
 
 end

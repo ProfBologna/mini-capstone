@@ -1,0 +1,11 @@
+<h1>Order Page</h1>
+<h2>Product Name: <%= @order.great_old_one.name %></h2>
+<img src="<= @great_old_one.default_image %>">
+<h2>Order ID: 77865<%= @order.id %></h2>
+<h2>Order Quantity: <%= @order.quantity %></h2>
+<h2>Subtotal: <%= number_to_currency(@order.subtotal) %></h2>
+<h2>Tax: <%= number_to_currency(@order.tax) %></h2>
+<h2>Total: <%= number_to_currency(@order.total) %></h2>
+<h2>Email: <%= current_user.email %></h2>
+<h2>Order Time: <%= @order.created_at %></h2>
+<h2></h2>

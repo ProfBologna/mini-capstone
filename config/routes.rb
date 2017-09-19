@@ -9,4 +9,15 @@ get 'great_old_ones/:id/edit' => 'great_old_ones#edit'
 patch 'great_old_ones/:id' => 'great_old_ones#update'
 delete 'great_old_ones/:id' => 'great_old_ones#destroy'
 
+get '/signup' => 'users#new'
+post '/users' => 'users#create'
+
+get '/login' => 'sessions#new'
+post '/login' => 'sessions#create'
+get '/logout' => 'sessions#destroy'
+
+get '/orders/new' => 'orders#new'
+post '/orders' => 'orders#create'
+get '/orders/:id' => 'orders#show'
+
 end

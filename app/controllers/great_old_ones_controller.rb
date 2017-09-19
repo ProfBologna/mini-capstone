@@ -1,5 +1,6 @@
 class GreatOldOnesController < ApplicationController
   
+
   def index
     @goo = GreatOldOne.all
 
