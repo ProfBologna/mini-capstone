@@ -1,5 +1,5 @@
 User.create!([
-  {name: "Joe School", password: "password", password_confrimation: "password", email: "joe@school.com", admin: false},
+  {name: "Joe School", password: "password", password_confirmation: "password", email: "joe@school.com", admin: false},
 ])
 
 Supplier.create!([
