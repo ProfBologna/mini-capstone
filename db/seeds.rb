@@ -1,17 +1,20 @@
-
-User.create!([
-  {name: "Joe School", password: "password", password_confirmation: "password", email: "joe@school.com", admin: false},
-  {name: "ghfgf", password: "password", password_confirmation: "password", email: "gfdgfd@bvcn.com", admin: false},
-  {name: "ghfgf", password: "password", password_confirmation: "password", email: "gfdgfd@bvcn.com", admin: false},
-  {name: "Joe Cool", password: "password", password_confrimation: "password", email: "joe@cool.com", admin: true}
+CartedGoo.create!([
+  {user_id: 1, quantity: 3, status: "ordered", order_id: 35, great_old_one_id: 3},
+  {user_id: 1, quantity: 4, status: "ordered", order_id: 35, great_old_one_id: 2},
+  {user_id: 1, quantity: 3, status: "ordered", order_id: 35, great_old_one_id: 4},
+  {user_id: 1, quantity: 3, status: "ordered", order_id: 35, great_old_one_id: 2},
+  {user_id: 1, quantity: 3, status: "ordered", order_id: nil, great_old_one_id: 3},
+  {user_id: 1, quantity: 1, status: "ordered", order_id: nil, great_old_one_id: 2},
+  {user_id: 1, quantity: 6, status: "ordered", order_id: nil, great_old_one_id: 5},
+  {user_id: 1, quantity: 2, status: "ordered", order_id: nil, great_old_one_id: 3},
+  {user_id: 1, quantity: 2, status: "ordered", order_id: nil, great_old_one_id: 3},
+  {user_id: 1, quantity: 2, status: "ordered", order_id: nil, great_old_one_id: 2},
+  {user_id: 1, quantity: 2, status: "ordered", order_id: nil, great_old_one_id: 3},
+  {user_id: 1, quantity: 3, status: "ordered", order_id: nil, great_old_one_id: 3},
+  {user_id: 1, quantity: 3, status: "ordered", order_id: nil, great_old_one_id: 3},
+  {user_id: 1, quantity: 2, status: "carted", order_id: nil, great_old_one_id: 3},
+  {user_id: 1, quantity: 4, status: "carted", order_id: nil, great_old_one_id: 3}
 ])
-
-Supplier.create!([
-  {name: "HP Lovecraft", email: "hp@lovecraft.horror", phone: "1-800-ABYSSAL"},
-  {name: "Algernon Blackwood", email: "algernon@blackwood.horror", phone: "1-800-HOLLOWS"},
-  {name: "Lord Dunsany", email: "lord@dunsany.horror", phone: "1-800-ROYALTY"}
-])
-
 Category.create!([
   {name: "Tentacular"},
   {name: "Globular"},
@@ -21,16 +24,6 @@ Category.create!([
   {name: "Dormant"},
   {name: "Active"}
 ])
-
-GreatOldOne.create!([
-  {name: "Abholos", description: "Abolos (Devourer in the Mist) is a great, grey festering orb of endless malevolence. Although not confirmed, he is said to be a lesser brother of Tsathoggua, born of his bile and tears.", price: "60.0", in_stock: nil, supplier_id: 3},
-  {name: "Shub-Niggurath", description: "Shub-Niggurath (The Black Goat of the Woods with a Thousand Young) is a perverse fertility deity, said to appear as an enormous cloudy mass which extrudes black tentacles, slime dripping mouths, and short, writhing goat legs. Small creatures are continuously spat forth by the monstrosity, which are either reconsumed into the miasmic form or escape to some monstrous life elsewhere.", price: "666.0", in_stock: nil, supplier_id: 1},
-  {name: "Tsathoggua", description: "He was very squat and pot-bellied, his head was more like a monstrous toad than a deity, and his whole body was covered with an imitation of short fur, giving somehow a vague sensation of both the bat and the sloth. His sleepy lids were half-lowered over his globular eyes; and the tip of a queer tongue issued from his fat mouth", price: "15000.0", in_stock: nil, supplier_id: 1},
-  {name: "Azathoth", description: "[O]utside the ordered universe [is] that amorphous blight of nethermost confusion which blasphemes and bubbles at the center of all infinity—the boundless daemon sultan Azathoth, whose name no lips dare speak aloud, and who gnaws hungrily in inconceivable, unlighted chambers beyond time and space amidst the muffled, maddening beating of vile drums and the thin monotonous whine of accursed flutes.", price: "90.0", in_stock: nil, supplier_id: 1},
-  {name: "Yog-Sothoth", description: "Yog-Sothoth, an omnicient outer-god, locked outside of the universe, visually manifests himself as a mass of glowing orbs, with or without eyes and tendrils. Yog-sothoth is mainly invoked by mortals for the resurrection of the dead, and is known to have fathered one set of human twins.", price: "500.0", in_stock: nil, supplier_id: 2},
-  {name: "Cthulhu", description: "Cthulhu is a Great Old One that lies in a death-like sleep beneath the Pacific Ocean in his sunken city of R'lyeh. He is a domineering figure in the eldritch happenings in our world.", price: "2500000.0", in_stock: nil, supplier_id: 1}
-])
-
 CategoryGoo.create!([
   {category_id: 1, great_old_one_id: 1},
   {category_id: 2, great_old_one_id: 1},
@@ -55,7 +48,14 @@ CategoryGoo.create!([
   {category_id: 4, great_old_one_id: 6},
   {category_id: 7, great_old_one_id: 3}
 ])
-
+GreatOldOne.create!([
+  {name: "Abholos", description: "Abolos (Devourer in the Mist) is a great, grey festering orb of endless malevolence. Although not confirmed, he is said to be a lesser brother of Tsathoggua, born of his bile and tears.", price: "60.0", in_stock: nil, supplier_id: 3},
+  {name: "Shub-Niggurath", description: "Shub-Niggurath (The Black Goat of the Woods with a Thousand Young) is a perverse fertility deity, said to appear as an enormous cloudy mass which extrudes black tentacles, slime dripping mouths, and short, writhing goat legs. Small creatures are continuously spat forth by the monstrosity, which are either reconsumed into the miasmic form or escape to some monstrous life elsewhere.", price: "666.0", in_stock: nil, supplier_id: 1},
+  {name: "Tsathoggua", description: "He was very squat and pot-bellied, his head was more like a monstrous toad than a deity, and his whole body was covered with an imitation of short fur, giving somehow a vague sensation of both the bat and the sloth. His sleepy lids were half-lowered over his globular eyes; and the tip of a queer tongue issued from his fat mouth", price: "15000.0", in_stock: nil, supplier_id: 1},
+  {name: "Azathoth", description: "[O]utside the ordered universe [is] that amorphous blight of nethermost confusion which blasphemes and bubbles at the center of all infinity—the boundless daemon sultan Azathoth, whose name no lips dare speak aloud, and who gnaws hungrily in inconceivable, unlighted chambers beyond time and space amidst the muffled, maddening beating of vile drums and the thin monotonous whine of accursed flutes.", price: "90.0", in_stock: nil, supplier_id: 1},
+  {name: "Yog-Sothoth", description: "Yog-Sothoth, an omnicient outer-god, locked outside of the universe, visually manifests himself as a mass of glowing orbs, with or without eyes and tendrils. Yog-sothoth is mainly invoked by mortals for the resurrection of the dead, and is known to have fathered one set of human twins.", price: "500.0", in_stock: nil, supplier_id: 2},
+  {name: "Cthulhu", description: "Cthulhu is a Great Old One that lies in a death-like sleep beneath the Pacific Ocean in his sunken city of R'lyeh. He is a domineering figure in the eldritch happenings in our world.", price: "2500000.0", in_stock: nil, supplier_id: 1}
+])
 Image.create!([
   {great_old_one_id: 1, url: "https://2ch.hk/b/arch/2016-06-12/src/129475385/14657316829780.jpg"},
   {great_old_one_id: 1, url: "https://static.tumblr.com/0e031e00dec815f7f7e963d911da8be1/baa04np/IV5ortm7b/tumblr_static_tumblr_static_ah31s7yy82ogk408gck80gsc0_640.jpg"},
@@ -71,4 +71,17 @@ Image.create!([
   {great_old_one_id: 6, url: "https://vignette2.wikia.nocookie.net/lovecraft/images/b/bd/AZATHOTH.jpg/revision/latest?cb=20170701172141"},
   {great_old_one_id: 6, url: "https://img14.deviantart.net/658b/i/2015/261/d/8/azathoth_by_bergamind-d61fuwh.jpg"}
 ])
-
+Order.create!([
+  {user_id: 1, subtotal: "7504842.0", tax: "675435.78", total: "8180277.78"}
+])
+Supplier.create!([
+  {name: "HP Lovecraft", email: "hp@lovecraft.horror", phone: "1-800-ABYSSAL"},
+  {name: "Algernon Blackwood", email: "algernon@blackwood.horror", phone: "1-800-HOLLOWS"},
+  {name: "Lord Dunsany", email: "lord@dunsany.horror", phone: "1-800-ROYALTY"}
+])
+User.create!([
+  {name: "Joe School", password: nil, password_digest: "$2a$10$.Nv6wvB7bfWPPz/JWntaE.ATPCR5LxkXp1rNuTz8EScsKPggpzfh.", email: "joe@school.com", admin: false},
+  {name: "ghfgf", password: nil, password_digest: "$2a$10$kzrlwBP92Ss2Msj0lzs6Re.lqGk1IjnlkgWsYM/p5GhFXoRQJyy22", email: "gfdgfd@bvcn.com", admin: false},
+  {name: "ghfgf", password: nil, password_digest: "$2a$10$Q6CH/zYzyW3GWx0Z.m/dReIXveemy5n4IKgfwPPqZhXQCEzR860Py", email: "gfdgfd@bvcn.com", admin: false},
+  {name: "Joe Cool", password: nil, password_digest: "$2a$10$GXU.GQBqLRfAii4gN2FynOJoxAtCgH0/Wv5SlynYH/.ginCoNVlvy", email: "joe@cool.com", admin: true}
+])
