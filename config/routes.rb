@@ -20,4 +20,8 @@ get '/orders/new' => 'orders#new'
 post '/orders' => 'orders#create'
 get '/orders/:id' => 'orders#show'
 
+get '/cart' => 'carted_goos#index'
+post '/carted_goos' => 'carted_goos#create'
+delete '/carted_goos/:id' => 'carted_goos#destroy'
+
 end

@@ -1,8 +1,18 @@
 class GreatOldOne < ApplicationRecord
-
   belongs_to :supplier
-  has_many :images
   has_many :orders
+  has_many :images
+  has_many :carted_goos
+  has_many :category_goos
+  has_many :categories, through: :category_goos
+
+  validates :name, presence: true
+  validates :name, uniqueness: true
+  validates :price, presence: true
+  validates :price, numericality: true
+  validates :description, length: { in: 50..500 }
+
+
 
   def sale_message
     if discounted?

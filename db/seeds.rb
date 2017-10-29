@@ -88,3 +88,66 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+Category.create!(name: "Tentacular") #1
+Category.create!(name: "Globular") #2
+Category.create!(name: "Festering") #3
+Category.create!(name: "Cosmic") #4
+Category.create!(name: "Terrestrial") #5
+Category.create!(name: "Dormant") #6
+Category.create!(name: "Active") #7
+
+CategoryGoo.create!(great_old_one_id: 1, category_id: 1)
+CategoryGoo.create!(great_old_one_id: 1, category_id: 2)
+CategoryGoo.create!(great_old_one_id: 1, category_id: 3)
+CategoryGoo.create!(great_old_one_id: 1, category_id: 4)
+CategoryGoo.create!(great_old_one_id: 1, category_id: 7)
+
+CategoryGoo.create!(great_old_one_id: 2, category_id: 1)
+CategoryGoo.create!(great_old_one_id: 2, category_id: 3)
+CategoryGoo.create!(great_old_one_id: 2, category_id: 5)
+CategoryGoo.create!(great_old_one_id: 2, category_id: 7)
+
+CategoryGoo.create!(great_old_one_id: 3, category_id: 1)
+CategoryGoo.create!(great_old_one_id: 3, category_id: 5)
+CategoryGoo.create!(great_old_one_id: 3, category_id: 6)
+
+CategoryGoo.create!(great_old_one_id: 4, category_id: 1)
+CategoryGoo.create!(great_old_one_id: 4, category_id: 5)
+CategoryGoo.create!(great_old_one_id: 4, category_id: 6)
+
+CategoryGoo.create!(great_old_one_id: 5, category_id: 2)
+CategoryGoo.create!(great_old_one_id: 5, category_id: 3)
+CategoryGoo.create!(great_old_one_id: 5, category_id: 7)
+
+CategoryGoo.create!(great_old_one_id: 6, category_id: 1)
+CategoryGoo.create!(great_old_one_id: 6, category_id: 2)
+CategoryGoo.create!(great_old_one_id: 6, category_id: 4)
+CategoryGoo.create!(great_old_one_id: 3, category_id: 7)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

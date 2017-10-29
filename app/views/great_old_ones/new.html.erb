@@ -1,25 +1,27 @@
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <h2><%= error %></h2>
+  <% end %>
+<% end %>
+
 <h1>New Great Old One</h1>
 <%= form_tag "/great_old_ones", method: :post do %>
 <div class="form-group">
     <label for="exampleInputEmail1">Name</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Name" name="name">
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Name" name="name" value="<%= @great_old_one.name %>">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Price</label>
-    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Price" name="price">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Image</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Image URL" name="image">
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Price" name="price" value="<%= @great_old_one.price %>">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Description</label>
-    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Description" name="description">
+    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Description" name="description" value="<%= @great_old_one.description %>">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Suppliers</label>
     <select class="form-control" name="supplier_id">
-    <% @supplier.each do |supplier| %>
+    <% @suppliers.each do |supplier| %>
       <option value="supplier_id"><%= supplier.name %></option>
     <% end %>
   </div>

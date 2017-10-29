@@ -10,10 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170917162953) do
+ActiveRecord::Schema.define(version: 20170927020053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "carted_goos", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "quantity"
+    t.string "status"
+    t.integer "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "great_old_one_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "category_goos", force: :cascade do |t|
+    t.integer "category_id"
+    t.integer "great_old_one_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "great_old_ones", force: :cascade do |t|
     t.string "name"
@@ -34,8 +57,6 @@ ActiveRecord::Schema.define(version: 20170917162953) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "great_old_one_id"
-    t.integer "quantity"
     t.decimal "subtotal", precision: 9, scale: 2
     t.decimal "tax", precision: 9, scale: 2
     t.decimal "total", precision: 9, scale: 2
@@ -58,6 +79,7 @@ ActiveRecord::Schema.define(version: 20170917162953) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email"
+    t.boolean "admin", default: false
   end
 
 end

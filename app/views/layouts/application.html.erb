@@ -26,10 +26,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/?random=true">Random Great Old One <span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="/?random=true">Random Great Old One<span class="sr-only">(current)</span></a></li>
             <li><a href="/?discount=true">Discount Items!</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Decisions.. <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cult Activities<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="/signup">Join Cult</a></li>
                 <li><a href="/login">Adorn Hood</a></li>
@@ -50,13 +50,19 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><%= current_user && current_user.name %></a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort Options<span class="caret"></span></a>
               <ul class="dropdown-menu">
+                <% if current_user && current_user.admin %>
                 <li><a href="/great_old_ones/new">New God</a></li>
+                <% end %>
                 <li><a href="/?sort=price">Sort By Price (lowest - highest)</a></li>
                 <li><a href="/?sort=price&desc=true">Sort By Price (highest - lowest)</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
+                <% Category.all.each do |category| %>
+                <li><a href="/great_old_ones/?category=<%= category.name %>"><%= category.name %></a></li>
+                <% end %>
+                <li role="separator" class="divider"></li>
+                <li><a href="/cart">Cart</a></li>
               </ul>
             </li>
           </ul>

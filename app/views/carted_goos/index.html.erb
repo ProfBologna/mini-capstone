@@ -1,0 +1,7 @@
+<% @carted_goos.each do |carted_goo| %>
+  <h2><%= carted_goo.great_old_one.name %> - Quantity: <%= carted_goo.quantity %>
+    <%= link_to "remove", "/carted_goos/#{carted_goo.id}", method: :delete %>
+  </h2>
+<% end %>
+
+<%= link_to "Buy now!", "/orders", method: :post, class: "btn btn-primary" %>
